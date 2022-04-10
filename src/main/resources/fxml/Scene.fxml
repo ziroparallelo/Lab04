@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.lab04.FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.lab04.FXMLController">
    <top>
       <Label text="Lab4_Segreteria_Studenti" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -13,4 +27,134 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Corso:">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="cmbCorso" prefWidth="150.0" promptText="Corsi">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#doCercaIscrittiCorso" text="Cerca iscritti corso">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Studente">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtMatricola" prefWidth="160.0" promptText="Matricola">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <CheckBox fx:id="txtOkButton" mnemonicParsing="false" onAction="#doInserimentoAutomatico" wrapText="true">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="0.004750593824228029" proportional="false" startX="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007532956685499058">
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.8418365883736268">
+                                 <color>
+                                    <Color red="0.2519899308681488" green="0.8947368264198303" blue="0.10769980400800705" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.1887386292219162" green="0.8552631735801697" blue="0.0554337240755558" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <Glow />
+                     </effect></CheckBox>
+                  <TextField fx:id="txtNome" promptText="Nome">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtCognome" promptText="Cognome">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#doCercaCorsi" text="Cerca corsi" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#doIscrivi" text="Iscrivi" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#doCercaStudente" text="Cerca" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+               </children>
+            </GridPane>
+            <TextArea fx:id="txtOutput" prefHeight="266.0" prefWidth="700.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+               <effect>
+                  <Bloom threshold="1.0" />
+               </effect>
+            </TextArea>
+            <GridPane prefHeight="87.0" prefWidth="600.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#doReset" text="Reset" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
